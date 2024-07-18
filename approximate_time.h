@@ -849,6 +849,7 @@ namespace message_filters
             bool verbose_ = true;
             bool is_benchmark_processor_ = false;
             
+            
         };
 
     } // namespace sync
