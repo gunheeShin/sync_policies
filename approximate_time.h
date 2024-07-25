@@ -418,9 +418,10 @@ namespace message_filters
                 ros::Time candidate_1_time = mt::TimeStamp<M1>::value(*boost::get<1>(candidate_).getMessage());
                 ros::Time candidate_2_time = mt::TimeStamp<M2>::value(*boost::get<2>(candidate_).getMessage());
                 ros::Time candidate_3_time = mt::TimeStamp<M3>::value(*boost::get<3>(candidate_).getMessage());
-                std::cout.precision(19);
-                std::cout<<"Candidate is established with time 0 : "<<candidate_0_time.toSec()<<" time 1 : "<<candidate_1_time.toSec()<<" time 2 : "<<candidate_2_time.toSec()<<" time 3 : "<<candidate_3_time.toSec()<<std::endl;
-
+                if(verbose_){
+                    std::cout<<"Candidate is established with time 0 : "<<candidate_0_time.toSec()<<" time 1 : "<<candidate_1_time.toSec()<<" time 2 : "<<candidate_2_time.toSec()<<" time 3 : "<<candidate_3_time.toSec()<<std::endl;
+                }
+                
                 // Delete all past messages, since we have found a better candidate
                 boost::get<0>(past_).clear();
                 boost::get<1>(past_).clear();
